@@ -12,7 +12,21 @@ router.get('/', function(req, res, next) {
       console.log(err);
     } else {
       console.log(result);
-      //res.render('index', { avatars: result });
+      res.render('index', { avatars: result });
+    }
+  });
+});
+
+// get individual info / bio info
+router.get('/:hero', function(req, res, next) { // req means request, res means result, so request for result 
+  // do a database query and get some of the hero data
+  connect.query(`SELECT * FROM hero WHERE name="${req.params.hero}"`, (err, result) => {
+    if (err) {
+      throw err;
+      console.log(err);
+    } else {
+      console.log(result);
+      res.render('bio', { bioData: result[0] });
     }
   });
 });

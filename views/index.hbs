@@ -1,2 +1,12 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<section id="heroes">
+    {{#each avatars}}
+        <div class="hero-container">
+            <a href="/{{name}}">
+                <img src="/images/{{avatar}}" alt="avatar">
+            </a>
+
+            <h3 class="her-name">{{name}}</h3>
+        </div>
+
+    {{/each}}
+</section>
